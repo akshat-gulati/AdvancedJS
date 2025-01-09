@@ -101,3 +101,27 @@ class Person {
 
 const person = new Person('John Doe', '123-45-6789');
 console.log(person.getSSN()); // Output: 123-45-6789
+
+
+// Class-Based Inheritance
+// With the introduction of ES6, JavaScript also supports class-based inheritance, which provides a more familiar syntax for developers coming from class-based languages like Java or C++.
+
+Example
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+
+  speak() {
+    console.log(`${this.name} makes a noise.`);
+  }
+}
+
+class Dog extends Animal {
+  speak() {
+    console.log(`${this.name} barks.`);
+  }
+}
+
+let dog = new Dog("Rex");
+dog.speak(); // "Rex barks."
