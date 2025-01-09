@@ -242,3 +242,25 @@ const obj7 = {
 console.log(String(obj)); // "Hello"
 console.log(Number(obj)); // 42
 console.log(obj + ""); // "null"
+
+// Creating Objects Without __proto__
+// To create an object without a prototype, you can use the Object.create(null) method:
+
+let dictionary = Object.create(null);
+
+dictionary.apple = "A fruit";
+dictionary.book = "A set of written pages";
+
+console.log(dictionary.apple); // "A fruit"
+console.log(dictionary.book); // "A set of written pages"
+
+// Adding Methods to Objects Without __proto__
+
+let dictionary = Object.create(null);
+
+dictionary.add = function(key, value) {
+  this[key] = value;
+};
+
+dictionary.add("apple", "A fruit");
+console.log(dictionary.apple); // "A fruit"
