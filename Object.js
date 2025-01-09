@@ -200,3 +200,45 @@ const user = {
   
   const street = user && user.address && user.address.street;
   console.log(street); // '123 Main St'
+
+
+  // Conversion of object to primitive value
+
+// 1. toString Method:
+
+let obj = {
+  toString() {
+    return "Hello";
+  }
+};
+
+console.log(String(obj)); // "Hello"
+
+
+// 2. valueOf Method:
+
+let obj2 = {
+  valueOf() {
+    return 42;
+  }
+};
+
+console.log(Number(obj2)); // 42
+
+// 3. Symbol.toPrimitive Method:
+
+const obj7 = {
+  [Symbol.toPrimitive](hint) {
+    if (hint === "string") {
+      return "Hello";
+    }
+    if (hint === "number") {
+      return 42;
+    }
+    return null;
+  }
+};
+
+console.log(String(obj)); // "Hello"
+console.log(Number(obj)); // 42
+console.log(obj + ""); // "null"
